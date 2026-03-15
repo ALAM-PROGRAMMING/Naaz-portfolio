@@ -15,7 +15,7 @@ __pycache__/
 *.pyo
 extract_images.py
 
-# Heavy PDF files
+# Heavy PDF files Need to be removed from the repository, but can be kept locally for reference.
 *.pdf
 Gulfeshan Naaz- Resume.pdf
 Gulfeshan Naaz_Interior Portfolio.pdf
