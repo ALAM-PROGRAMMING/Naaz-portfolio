@@ -1,0 +1,726 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Gulfeshan Naaz</title>
+    <meta name="description"
+        content="Meet Gulfeshan Naaz — a 3D Interior Designer with 6 years of experience crafting photorealistic spaces for residential and commercial projects." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #090705;
+            --gold: #c8a96e;
+            --white: #f4efe6;
+            --muted: rgba(244, 239, 230, 0.42);
+            --border: rgba(200, 169, 110, 0.14);
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 60px;
+            background: linear-gradient(to bottom, rgba(9, 7, 5, .96) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-family: 'Lora', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 60px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 70% at 70% 40%, rgba(200, 169, 110, .07) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 50% at 20% 80%, rgba(200, 169, 110, .04) 0%, transparent 60%);
+        }
+
+        /* large faint letterform behind text */
+        .hero-letter {
+            position: absolute;
+            right: -2vw;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Lora', serif;
+            font-size: clamp(280px, 35vw, 500px);
+            font-weight: 600;
+            color: rgba(200, 169, 110, .04);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 720px;
+        }
+
+        .hero-tag {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp .6s ease forwards .1s;
+        }
+
+        .hero h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(3.2rem, 6.5vw, 6rem);
+            font-weight: 300;
+            line-height: 1.02;
+            letter-spacing: -.01em;
+            opacity: 0;
+            animation: fadeUp .7s ease forwards .25s;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-bio {
+            margin-top: 28px;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeUp .7s ease forwards .4s;
+        }
+
+        .hero-divider {
+            margin-top: 52px;
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0;
+            animation: fadeUp .5s ease forwards .55s;
+        }
+
+        /* ─── STATS ─── */
+        .stats {
+            display: flex;
+            gap: 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 0 60px;
+            opacity: 0;
+            animation: fadeUp .7s ease forwards .7s;
+        }
+
+        .stat {
+            flex: 1;
+            padding: 44px 48px;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: 'Lora', serif;
+            font-size: clamp(2.8rem, 4vw, 4rem);
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            margin-top: 8px;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ─── SECTION WRAPPER ─── */
+        .section {
+            padding: 100px 60px;
+        }
+
+        .section+.section {
+            padding-top: 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .section-head .line {
+            flex: 0 0 36px;
+            height: 1px;
+            background: var(--gold);
+            opacity: .5;
+        }
+
+        .section-head span {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ─── TIMELINE ─── */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 860px;
+        }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 180px 1px 1fr;
+            gap: 0 36px;
+            padding-bottom: 52px;
+            position: relative;
+        }
+
+        .tl-item:last-child {
+            padding-bottom: 0;
+        }
+
+        /* date column */
+        .tl-date {
+            text-align: right;
+            padding-top: 4px;
+        }
+
+        .tl-date .period {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .tl-date .company {
+            margin-top: 6px;
+            font-size: .78rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* spine */
+        .tl-spine {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tl-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 5px;
+            box-shadow: 0 0 0 3px rgba(200, 169, 110, .15);
+        }
+
+        .tl-line {
+            flex: 1;
+            width: 1px;
+            background: var(--border);
+            margin-top: 8px;
+        }
+
+        .tl-item:last-child .tl-line {
+            display: none;
+        }
+
+        /* content */
+        .tl-content {
+            padding-top: 2px;
+        }
+
+        .tl-role {
+            font-family: 'Lora', serif;
+            font-size: 1.45rem;
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .tl-desc {
+            margin-top: 10px;
+            font-size: .85rem;
+            line-height: 1.72;
+            color: var(--muted);
+        }
+
+        /* ─── SKILLS ─── */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 620px;
+        }
+
+
+        .skill-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .skill-pct {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            color: var(--gold);
+        }
+
+        .skill-track {
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, rgba(200, 169, 110, .5), var(--gold));
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.2s cubic-bezier(.25, 0, .1, 1);
+        }
+
+        /* ─── EDUCATION ─── */
+        .edu-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 36px 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 640px;
+            background: rgba(200, 169, 110, .03);
+        }
+
+        .edu-degree {
+            font-family: 'Lora', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--white);
+        }
+
+        .edu-inst {
+            margin-top: 6px;
+            font-size: .78rem;
+            letter-spacing: .1em;
+            color: var(--muted);
+        }
+
+        .edu-year {
+            font-family: 'Lora', serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: var(--gold);
+            opacity: .6;
+            flex-shrink: 0;
+        }
+
+        /* ─── CONTACT CTA ─── */
+        .contact-section {
+            padding: 100px 60px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .contact-left h2 {
+            font-family: 'Lora', serif;
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -.01em;
+        }
+
+        .contact-left h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-end;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: .85rem;
+            letter-spacing: .04em;
+            transition: color .2s;
+        }
+
+        .contact-link:hover {
+            color: var(--gold);
+        }
+
+        .contact-link .icon {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            flex-shrink: 0;
+            transition: border-color .2s;
+        }
+
+        .contact-link:hover .icon {
+            border-color: rgba(200, 169, 110, .5);
+        }
+
+        /* ─── FOOTER ─── */
+        .page-footer {
+            padding: 28px 60px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-footer p {
+            font-size: .72rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: rgba(244, 239, 230, .55);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .74rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            transition: gap .2s;
+        }
+
+        .back-link:hover {
+            gap: 14px;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">Studio</a>
+        <ul class="nav-links">
+            <li><a href="designs.html">Work</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-letter">G</div>
+        <div class="hero-content">
+            <p class="hero-tag">Interior Designer · 6 Years of Experience</p>
+            <h1>Gulfeshan<br><em>Naaz</em></h1>
+            <p class="hero-bio">
+                Six years of turning spaces into stories — from hand-drawn concept to photorealistic vision.
+                Specialising in 3D renderings that bring residential and commercial interiors to life before a
+                single wall is built.
+            </p>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats reveal">
+        <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Design Studios</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Specialisations</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Software Tools</div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+        <div class="section-head reveal">
+            <div class="line"></div>
+            <span>Experience</span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="tl-item reveal">
+                <div class="tl-date">
+                    <div class="period">May 2019 – Present</div>
+                    <div class="company">Designtastic Interior</div>
+                </div>
+                <div class="tl-spine">
+                    <div class="tl-dot"></div>
+                    <div class="tl-line"></div>
+                </div>
+                <div class="tl-content">
+                    <div class="tl-role">Interior Designer</div>
+                    <p class="tl-desc">Developing realistic 3D visualisations to communicate design ideas clearly and
+                        support end-to-end project planning.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+        <div class="section-head reveal">
+            <div class="line"></div>
+            <span>Software & Tools</span>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-row reveal" data-pct="90">
+                <div class="skill-meta">
+                    <span class="skill-name">3Ds Max</span>
+                    <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-track">
+                    <div class="skill-fill"></div>
+                </div>
+            </div>
+            <div class="skill-row reveal" data-pct="90">
+                <div class="skill-meta">
+                    <span class="skill-name">Corona Renderer</span>
+                    <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-track">
+                    <div class="skill-fill"></div>
+                </div>
+            </div>
+            <div class="skill-row reveal" data-pct="80">
+                <div class="skill-meta">
+                    <span class="skill-name">AutoCAD</span>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-track">
+                    <div class="skill-fill"></div>
+                </div>
+            </div>
+            <div class="skill-row reveal" data-pct="80">
+                <div class="skill-meta">
+                    <span class="skill-name">Photoshop</span>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-track">
+                    <div class="skill-fill"></div>
+                </div>
+            </div>
+            <div class="skill-row reveal" data-pct="70">
+                <div class="skill-meta">
+                    <span class="skill-name">Unreal Engine</span>
+                    <span class="skill-pct">70%</span>
+                </div>
+                <div class="skill-track">
+                    <div class="skill-fill"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+        <div class="section-head reveal">
+            <div class="line"></div>
+            <span>Education</span>
+        </div>
+        <div class="edu-card reveal">
+            <div>
+                <div class="edu-degree">BSc in Interior Design</div>
+                <div class="edu-inst">Himalayan University</div>
+            </div>
+            <div class="edu-year">2019</div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <div class="contact-section reveal">
+        <div class="contact-left">
+            <h2>Let's create<br>something <em>remarkable.</em></h2>
+        </div>
+        <div class="contact-links">
+            <a class="contact-link" href="mailto:gulfeshannaaz25@gmail.com">
+                <span class="icon">✉</span>
+                gulfeshannaaz25@gmail.com
+            </a>
+            <a class="contact-link" href="tel:+919310011578">
+                <span class="icon">☎</span>
+                +91 93100 11578
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p>Gulfeshan Naaz — Interior Design Portfolio</p>
+        <a href="index.html" class="back-link">← &nbsp; Back to Home</a>
+    </footer>
+
+    <script>
+        /* ── Scroll-triggered reveal ── */
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+
+                        // Animate skill bars when they enter view
+                        const fill = entry.target.querySelector('.skill-fill');
+                        if (fill) {
+                            const pct = entry.target.dataset.pct || 0;
+                            fill.style.width = pct + '%';
+                        }
+                    }, i * 80);
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealEls.forEach(el => io.observe(el));
+    </script>
+
+</body>
+
+</html>

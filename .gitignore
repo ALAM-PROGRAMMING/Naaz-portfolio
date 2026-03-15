@@ -1,0 +1,33 @@
+# Unused/Alternative Media and Animations
+flower animated.mp4
+logo animated 2.mp4
+logo animated 3.mp4
+Gemini_Generated_logo.png
+designer font.jpg
+main font .jpeg
+main logo for animation.jpeg
+perfect image for stat frame.png
+start image for animation.jpeg
+
+# Python/Scripts
+__pycache__/
+*.pyc
+*.pyo
+extract_images.py
+
+# Heavy PDF files
+*.pdf
+Gulfeshan Naaz- Resume.pdf
+Gulfeshan Naaz_Interior Portfolio.pdf
+
+# Additional videos and images
+
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
